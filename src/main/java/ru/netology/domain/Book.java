@@ -15,7 +15,7 @@ public class Book extends Product {
         if (super.matches(search)) { // вызов метода matches в версии описанной в Product
             return true;
         }
-        if (bookAuthor == search) {
+        if (bookAuthor.contains(search)) {
             return true;
         };
         return false;

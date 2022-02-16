@@ -13,10 +13,9 @@ public class Smartphone extends Product {
         if (super.matches(search)) { // вызов метода matches в версии описанной в Product
             return true;
         }
-        if (smartphoneManufacturer == search) {
+        if (smartphoneManufacturer.contains(search)) {
             return true;
         }
-        ;
         return false;
     }
 }
