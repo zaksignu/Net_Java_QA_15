@@ -64,10 +64,14 @@ class ProductManagerTest {
         assertArrayEquals(excpected, actual);
     }
 
+    @Test
+    void matchesPositive() {
+        assertTrue(mng.matches(uno, "Book"));
+    }
 
     @Test
-    void matches() {
-        assertTrue(mng.matches(uno, "Book"));
+    void atchesNegative() {
         assertFalse(mng.matches(duo, "Book"));
     }
+
 }
