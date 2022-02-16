@@ -41,6 +41,7 @@ class ProductManagerTest {
         mng.removeById(3);
         Product[] excpected = repository.showThings();
         assertArrayEquals(excpected, actual);
+        mng.add(tre);
     }
 
     @Test
@@ -64,10 +65,62 @@ class ProductManagerTest {
         assertArrayEquals(excpected, actual);
     }
 
+    @Test
+    void searchforJiovan() {
+        Product[] actual = {uno, tre};
+        Product[] excpected = mng.searchBy("Jiovan");
+        assertArrayEquals(excpected, actual);
+    }
 
     @Test
-    void matches() {
+    void searchforChina() {
+        Product[] actual = {duo, cuatro};
+        Product[] excpected = mng.searchBy("China");
+        assertArrayEquals(excpected, actual);
+    }
+
+
+    @Test
+    void matchesPositiveBook() {
         assertTrue(mng.matches(uno, "Book"));
+    }
+
+    @Test
+    void matchesPositiveChina() {
+        assertTrue(mng.matches(duo, "China"));
+    }
+
+    @Test
+    void matchesPositiveJiovan() {
+        assertTrue(mng.matches(uno, "Jiovan"));
+    }
+
+    @Test
+    void matchesPositiveSmartphone() {
+        assertTrue(mng.matches(duo, "smartphone"));
+    }
+
+    @Test
+    void matchesNegativeBook() {
         assertFalse(mng.matches(duo, "Book"));
     }
+
+    @Test
+    void matchesNegativeJiovan() {
+        assertFalse(mng.matches(duo, "Jiovan"));
+    }
+
+    @Test
+    void matchesNegativeChina() {
+        assertFalse(mng.matches(uno, "China"));
+    }
+
+    @Test
+    void matchesNegativeSmartphone() {
+        assertFalse(mng.matches(uno, "smartphone"));
+    }
+
+
+
+
 }
