@@ -8,6 +8,7 @@ public class Smartphone extends Product {
         super(id, productName, price);
         this.smartphoneManufacturer = smartphoneManufacturer;
     }
+
     @Override
     public boolean matches(String search) {
         if (super.matches(search)) { // вызов метода matches в версии описанной в Product

@@ -20,8 +20,8 @@ public class Product {
         return productName;
     }
 
-    public boolean matches(String search){
-        if(productName.contains(search)){
+    public boolean matches(String search) {
+        if (productName.contains(search)) {
             return true;
         }
         return false;

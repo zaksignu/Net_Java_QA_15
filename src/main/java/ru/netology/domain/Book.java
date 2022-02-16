@@ -17,7 +17,7 @@ public class Book extends Product {
         }
         if (bookAuthor.contains(search)) {
             return true;
-        };
+        }
         return false;
     }
 }
