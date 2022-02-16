@@ -1,4 +1,6 @@
-package ru.netology;
+package ru.netology.repository;
+
+import ru.netology.domain.Product;
 
 public class ProductRepository {
 
@@ -7,11 +9,8 @@ public class ProductRepository {
     public void addProduct(Product thing) {
         int length = things.length + 1;
         Product[] tmp = new Product[length];
-        for (int i = 0; i < length - 1; i++) {
-            tmp[i] = things[i];
-        }
-        int lastIndex = tmp.length - 1;
-        tmp[lastIndex] = thing;
+        System.arraycopy(things, 0, tmp, 0, things.length);
+        tmp[tmp.length - 1] = thing;
         things = tmp;
 
     }

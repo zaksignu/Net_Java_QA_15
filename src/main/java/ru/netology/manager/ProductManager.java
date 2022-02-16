@@ -1,4 +1,7 @@
-package ru.netology;
+package ru.netology.manager;
+
+import ru.netology.domain.Product;
+import ru.netology.repository.ProductRepository;
 
 public class ProductManager {
     private ProductRepository thingsManager;
@@ -22,11 +25,7 @@ public class ProductManager {
             if (matches(product, text)) {
                 length++;
                 Product[] tmpsearch = new Product[length];
-                int i = 0;
-                for (Product productSearch : result) {
-                    tmpsearch[i] = result[i];
-                    i++;
-                }
+                System.arraycopy(result, 0, tmpsearch, 0, result.length);
                 int lastIndex = length - 1;
                 tmpsearch[lastIndex] = product;
                 result = tmpsearch;
