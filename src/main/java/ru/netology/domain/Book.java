@@ -9,5 +9,16 @@ public class Book extends Product {
         super(id, productName, price);
         this.bookAuthor = bookAuthor;
     }
+
+    @Override
+    public boolean matches(String search) {
+        if (super.matches(search)) { // вызов метода matches в версии описанной в Product
+            return true;
+        }
+        if (bookAuthor == search) {
+            return true;
+        };
+        return false;
+    }
 }
 

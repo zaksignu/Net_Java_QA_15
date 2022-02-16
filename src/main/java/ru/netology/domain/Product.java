@@ -19,6 +19,13 @@ public class Product {
     public String getProductName() {
         return productName;
     }
+
+    public boolean matches(String search){
+        if(productName == search){
+            return true;
+        }
+        return false;
+    }
 }
 
 
