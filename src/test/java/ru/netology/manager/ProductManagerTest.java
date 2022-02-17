@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.manager;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeAll;
 import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
-import ru.netology.manager.ProductManager;
 import ru.netology.repository.ProductRepository;
 
 

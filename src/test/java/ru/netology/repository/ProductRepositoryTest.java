@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.repository;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
