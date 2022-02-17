@@ -9,12 +9,19 @@ class SmartphoneTest {
 
 
     @Test
-    void positiveMatch() {
+    void positiveNameMatch() {
         assertTrue(duo.matches("Cliff"));
     }
+
+    @Test
+    void positiveManufacturerMatch() {
+        assertTrue(duo.matches("China"));
+    }
+
 
     @Test
     void negativeMatch() {
         assertFalse(duo.matches("Goat"));
     }
+
 }

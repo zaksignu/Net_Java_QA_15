@@ -8,12 +8,18 @@ class BookTest {
     static Book uno = new Book(1, "Cliff", 1000, "Jiovan");
 
     @Test
-    void positiveMatch() {
+    void positiveNameMatch() {
         assertTrue(uno.matches("Cliff"));
     }
 
     @Test
-    void negativeMatch() {
+    void positiveAuthorMatch() {
+        assertTrue(uno.matches("Jiovan"));
+    }
+
+    @Test
+    void negativeNameMatch() {
         assertFalse(uno.matches("Goat"));
     }
+
 }
