@@ -44,21 +44,21 @@ class ProductManagerTest {
     }
 
     @Test
-    void searchforBook() {
+    void searchForBook() {
         Product[] actual = {uno, tre};
         Product[] excpected = mng.searchBy("Book");
         assertArrayEquals(excpected, actual);
     }
 
     @Test
-    void searchforsmartphone() {
+    void searchForSmartphone() {
         Product[] actual = {duo, cuatro};
         Product[] excpected = mng.searchBy("smartphone");
         assertArrayEquals(excpected, actual);
     }
 
     @Test
-    void searchfornone() {
+    void searchForNone() {
         Product[] actual = {};
         Product[] excpected = mng.searchBy("z");
         assertArrayEquals(excpected, actual);
@@ -70,7 +70,7 @@ class ProductManagerTest {
     }
 
     @Test
-    void atchesNegativeBook() {
+    void matchesNegativeBook() {
         assertFalse(mng.matches(duo, "Book"));
     }
 
