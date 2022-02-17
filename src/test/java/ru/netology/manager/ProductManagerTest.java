@@ -65,8 +65,8 @@ class ProductManagerTest {
         assertArrayEquals(excpected, actual);
     }
 
-    @Test
-    void searchForJiovan() {
+    @Test  
+      void searchForJiovan() {
         Product[] actual = {uno, tre};
         Product[] excpected = mng.searchBy("Jiovan");
         assertArrayEquals(excpected, actual);
@@ -78,8 +78,7 @@ class ProductManagerTest {
         Product[] excpected = mng.searchBy("China");
         assertArrayEquals(excpected, actual);
     }
-
-
+  
     @Test
     void matchesPositiveBook() {
         assertTrue(mng.matches(uno, "Book"));
@@ -99,13 +98,11 @@ class ProductManagerTest {
     void matchesPositiveSmartphone() {
         assertTrue(mng.matches(duo, "smartphone"));
     }
-
     @Test
     void matchesNegativeBook() {
         assertFalse(mng.matches(duo, "Book"));
     }
-
-    @Test
+     @Test
     void matchesNegativeJiovan() {
         assertFalse(mng.matches(duo, "Jiovan"));
     }
@@ -119,8 +116,5 @@ class ProductManagerTest {
     void matchesNegativeSmartphone() {
         assertFalse(mng.matches(uno, "smartphone"));
     }
-
-
-
 
 }
