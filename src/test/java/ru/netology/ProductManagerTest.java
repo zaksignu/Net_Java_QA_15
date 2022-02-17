@@ -65,12 +65,12 @@ class ProductManagerTest {
     }
 
     @Test
-    void matchesPositive() {
+    void matchesPositiveBook() {
         assertTrue(mng.matches(uno, "Book"));
     }
 
     @Test
-    void atchesNegative() {
+    void atchesNegativeBook() {
         assertFalse(mng.matches(duo, "Book"));
     }
 
