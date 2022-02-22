@@ -1,36 +1,36 @@
 package ru.netology.repository;
 
-import ru.netology.domain.Product;
+import ru.netology.domain.Ticket;
 
 public class ProductRepository {
 
-    private Product[] things = new Product[0];
+    private Ticket[] paperFolder = new Ticket[0];
 
-    public void addProduct(Product thing) {
-        int length = things.length + 1;
-        Product[] tmp = new Product[length];
-        System.arraycopy(things, 0, tmp, 0, things.length);
+    public void addProduct(Ticket thing) {
+        int length = paperFolder.length + 1;
+        Ticket[] tmp = new Ticket[length];
+        System.arraycopy(paperFolder, 0, tmp, 0, paperFolder.length);
         tmp[tmp.length - 1] = thing;
-        things = tmp;
+        paperFolder = tmp;
 
     }
 
-    public Product[] showThings() {
-        return things;
+    public Ticket[] showThings() {
+        return paperFolder;
     }
 
     public void removeThing(int id) {
         int length;
         int p = 0;
-        length = things.length - 1;
-        Product[] tmp = new Product[length];
+        length = paperFolder.length - 1;
+        Ticket[] tmp = new Ticket[length];
         for (int i = 0; i <= length; i++) {
-            if (id != things[i].getId()) {
-                tmp[p] = things[i];
+            if (id != paperFolder[i].getId()) {
+                tmp[p] = paperFolder[i];
                 p++;
             }
         }
-        things = tmp;
+        paperFolder = tmp;
 
     }
 }
