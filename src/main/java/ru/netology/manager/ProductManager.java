@@ -48,8 +48,8 @@ public class ProductManager {
         Ticket tempOne;
         int neatOrder = 1;
         int length = ticket.length - 1;
-        while (neatOrder!=0) {
-            neatOrder =0;
+        while (neatOrder != 0) {
+            neatOrder = 0;
             for (int i = 0; i <= (length - 1); i++) {
                 if (ticket[i].compareTo(ticket[i + 1]) < 0) {
                     tempOne = ticket[i];

@@ -15,9 +15,11 @@ public class Ticket implements Comparable<Ticket> {
         this.arrivalPlace = arrivalPlace;
         this.travelTime = travelTime;
     }
+
     public int getId() {
         return id;
     }
+
     public int getPrice() {
         return price;
     }
@@ -27,17 +29,16 @@ public class Ticket implements Comparable<Ticket> {
         Ticket tick = (Ticket) o;
         return price - o.price;
     }
+
     public boolean departureMatch(String search) {
         if (departurePlace.contains(search)) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 
     public boolean arrivalMatch(String search) {
         if (arrivalPlace.contains(search)) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 }
