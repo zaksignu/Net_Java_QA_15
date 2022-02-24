@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class ProductRepositoryTest {
-//    static ProductRepository repository = new ProductRepository();
-//    static ProductManager mng = new ProductManager(repository);
+ //  static ProductRepository repository = new ProductRepository();
+ //   static ProductManager mng = new ProductManager(repository);
 //    static Book uno = new Book(1, "Book", 1000, "Jiovan");
 //    static Smartphone duo = new Smartphone(2, "smartphone", 1000, "China");
 //    static Book tre = new Book(3, "Book", 1000, "Jiovan");

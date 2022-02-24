@@ -21,76 +21,44 @@ public class ProductManager {
     public void findAll(String departure, String arrival) {
         Ticket[] result = new Ticket[0];
         for (Ticket product : ticketManager.showThings()) {
-            if ((matcheDeparture(product, departure))&&(matcheArrival(product, departure))) {
-           //     length++;
-                Ticket[] tmpsearch = new Ticket[result.length+1];
+            if ((matcheDeparture(product, departure)) & (matcheArrival(product, arrival))) {
+                int length = result.length;
+                Ticket[] tmpsearch = new Ticket[length + 1];
                 System.arraycopy(result, 0, tmpsearch, 0, result.length);
-                int lastIndex = result.length - 1;
+                int lastIndex = length;
                 tmpsearch[lastIndex] = product;
                 result = tmpsearch;
-            }
-        }
-       int length = result.length;
-        Ticket[] resultA = new Ticket[0];
-        for (Ticket productD : result) {
-            if(matcheDeparture(productD,arrival)){
-                Ticket[] tmpsearch = new Ticket[resultA.length+1];
-                System.arraycopy(resultA, 0, tmpsearch, 0, resultA.length);
-                int lastIndex = resultA.length - 1;
-                tmpsearch[lastIndex] = productD;
-                resultA = tmpsearch;
-            }
 
+            }
         }
+        orderResult(result);
     }
 
     public boolean matcheArrival(Ticket ticket, String search) {
         return ticket.arrivalMatch(search);
 
-    }    public boolean matcheDeparture(Ticket ticket, String search) {
+    }
+
+    public boolean matcheDeparture(Ticket ticket, String search) {
         return ticket.departureMatch(search);
     }
+
+
+    public void orderResult(Ticket[] ticket) {
+        Ticket tempOne;
+        int neatOrder = 1;
+        int length = ticket.length - 1;
+        while (neatOrder!=0) {
+            neatOrder =0;
+            for (int i = 0; i <= (length - 1); i++) {
+                if (ticket[i].compareTo(ticket[i + 1]) < 0) {
+                    tempOne = ticket[i];
+                    ticket[i] = ticket[i + 1];
+                    ticket[i + 1] = tempOne;
+                    neatOrder++;
+                }
+            }
+        }
     }
 
-
-//
-//    public Ticket[] searchByDepature(String text) {
-//        Ticket[] result = new Ticket[0];
-//        for (Ticket product : thingsManager.showThings()) {
-//            if (product.compareTo())
-//            if (matches(product, text)) {
-//                length++;
-//                Ticket[] tmpsearch = new Ticket[length];
-//                System.arraycopy(result, 0, tmpsearch, 0, result.length);
-//                int lastIndex = length - 1;
-//                tmpsearch[lastIndex] = product;
-//                result = tmpsearch;
-//          }
-//        //return null;
-//    }
-//
-//    public Ticket[] searchByArrival(String text) {
-//        return null;
-//    }
-////    public Ticket[] searchBy(String text) {
-////        int length = 0;
-////        Ticket[] result = new Ticket[0];
-////        for (Ticket product : thingsManager.showThings()) {
-//////            if (matches(product, text)) {
-//////                length++;
-//////                Ticket[] tmpsearch = new Ticket[length];
-//////                System.arraycopy(result, 0, tmpsearch, 0, result.length);
-//////                int lastIndex = length - 1;
-//////                tmpsearch[lastIndex] = product;
-//////                result = tmpsearch;
-////            }
-////        }
-////    //    return result;
-////        //return null;
-////    }
-//
-////   // public boolean matches(Ticket product, String search) {
-////        return product.matches(search);
-////    }
-//
-//}
+}
