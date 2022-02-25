@@ -51,11 +51,22 @@ class ProductManagerTest {
     }
     @Order(1)
     @Test
-    void findAll() {
+    void findAllPositive() {
         Ticket[] actual = mng.findAll("DME", "CHI");
         Ticket[] excpected = {tick16, tick8, tick15, tick14, tick4, tick12};
         assertArrayEquals(excpected, actual);
     }
+
+    @Order(7)
+    @Test
+    void findAllNegative() {
+        Ticket[] actual = mng.findAll("ZIA", "CHI");
+        Ticket[] excpected = {};
+        assertArrayEquals(excpected, actual);
+    }
+
+
+
     @Order(3)
     @Test
     void add() {

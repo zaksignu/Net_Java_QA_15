@@ -2,11 +2,11 @@ package ru.netology.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+
+import org.junit.jupiter.api.*;
 import ru.netology.domain.Ticket;
 import ru.netology.manager.ProductManager;
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ProductRepositoryTest {
     static Ticket tick1 = new Ticket(0, 1500, "CHI", "ZIA", 1000);
     static Ticket tick2 = new Ticket(1, 1200, "OTP", "VKO", 1500);
@@ -27,14 +27,14 @@ class ProductRepositoryTest {
         mng.add(tick3);
 
     }
-
+    @Order(1)
     @Test
     void showThings() {
       Ticket[] actual = {tick1, tick2, tick3};
       Ticket[] excpected = repository.showThings();
       assertArrayEquals(excpected, actual);
     }
-
+    @Order(2)
     @Test
     void removeThing() {
         repository.removeThing(2);
@@ -42,11 +42,11 @@ class ProductRepositoryTest {
         Ticket[] excpected = repository.showThings();
         assertArrayEquals(excpected, actual);
     }
-
+    @Order(3)
     @Test
     void addProduct() {
       mng.add(tick4);
-        Ticket[] actual = {tick1, tick2, tick3, tick4};
+        Ticket[] actual = {tick1, tick2, tick4};
         Ticket[] excpected = repository.showThings();
         assertArrayEquals(excpected, actual);
 
