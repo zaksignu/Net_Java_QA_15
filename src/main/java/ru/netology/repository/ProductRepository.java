@@ -22,9 +22,9 @@ public class ProductRepository {
     public void removeThing(int id) {
         int length;
         int p = 0;
-        length = paperFolder.length - 1;
-        Ticket[] tmp = new Ticket[length];
-        for (int i = 0; i <= length; i++) {
+        length = paperFolder.length;
+        Ticket[] tmp = new Ticket[length-1];
+        for (int i = 0; i < length; i++) {
             if (id != paperFolder[i].getId()) {
                 tmp[p] = paperFolder[i];
                 p++;

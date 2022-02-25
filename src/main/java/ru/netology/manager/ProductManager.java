@@ -18,7 +18,7 @@ public class ProductManager {
         ticketManager.removeThing(id);
     }
 
-    public void findAll(String departure, String arrival) {
+    public Ticket[] findAll(String departure, String arrival) {
         Ticket[] result = new Ticket[0];
         for (Ticket product : ticketManager.showThings()) {
             if ((matcheDeparture(product, departure)) & (matcheArrival(product, arrival))) {
@@ -28,10 +28,10 @@ public class ProductManager {
                 int lastIndex = length;
                 tmpsearch[lastIndex] = product;
                 result = tmpsearch;
-
             }
         }
-        orderResult(result);
+      //  orderResult(result);
+        return orderResult(result);
     }
 
     public boolean matcheArrival(Ticket ticket, String search) {
@@ -40,11 +40,11 @@ public class ProductManager {
     }
 
     public boolean matcheDeparture(Ticket ticket, String search) {
-        return ticket.departureMatch(search);
+       return ticket.departureMatch(search);
     }
 
 
-    public void orderResult(Ticket[] ticket) {
+    public Ticket[] orderResult(Ticket[] ticket) {
         Ticket tempOne;
         int neatOrder = 1;
         int length = ticket.length - 1;
@@ -59,6 +59,7 @@ public class ProductManager {
                 }
             }
         }
+        return ticket;
     }
 
 }
