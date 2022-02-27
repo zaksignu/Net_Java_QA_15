@@ -25,14 +25,14 @@ class TicketTest {
 
     @Test
     void compareToPositive() {
-    int expected = 300;
-    assertEquals(expected,tick1.compareTo(tick2));
+        int expected = 300;
+        assertEquals(expected, tick1.compareTo(tick2));
     }
 
     @Test
     void compareToNegative() {
         int expected = 0;
-        assertEquals(expected,tick1.compareTo(tick3));
+        assertEquals(expected, tick1.compareTo(tick3));
     }
 
     @Test

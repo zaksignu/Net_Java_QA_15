@@ -32,7 +32,6 @@ public class ProductManager {
                 result = tmpsearch;
             }
         }
-      //  orderResult(result);
         return orderResult(result);
     }
 
@@ -42,7 +41,7 @@ public class ProductManager {
     }
 
     public boolean matcheDeparture(Ticket ticket, String search) {
-       return ticket.departureMatch(search);
+        return ticket.departureMatch(search);
     }
 
 
