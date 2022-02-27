@@ -7,6 +7,8 @@ import org.junit.jupiter.api.*;
 import ru.netology.domain.Ticket;
 import ru.netology.repository.ProductRepository;
 
+import java.util.Arrays;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ProductManagerTest {
     static Ticket tick1 = new Ticket(0, 1500, "CHI", "ZIA", 1000);
@@ -49,11 +51,12 @@ class ProductManagerTest {
         mng.add(tick16);
 
     }
+
     @Order(1)
     @Test
     void findAllPositive() {
         Ticket[] actual = mng.findAll("DME", "CHI");
-        Ticket[] excpected = {tick16, tick8, tick15, tick14, tick4, tick12};
+        Ticket[] excpected = {tick12, tick4, tick14, tick15, tick8, tick16};
         assertArrayEquals(excpected, actual);
     }
 
@@ -66,7 +69,6 @@ class ProductManagerTest {
     }
 
 
-
     @Order(3)
     @Test
     void add() {
@@ -75,7 +77,9 @@ class ProductManagerTest {
                 tick11, tick12, tick13, tick14, tick15, tick16};
         Ticket[] excpected = repository.showThings();
         assertArrayEquals(excpected, actual);
+
     }
+
     @Order(2)
     @Test
     void removeById() {
@@ -86,22 +90,26 @@ class ProductManagerTest {
         assertArrayEquals(excpected, actual);
 
     }
+
     @Order(6)
     @Test
     void orderResult() {
-        Ticket[] actual = {tick16, tick6, tick7, tick13, tick5, tick8, tick15, tick14, tick1, tick2,
-                tick11, tick10, tick4, tick3, tick12, tick9};
+        Ticket[] actual = {tick9, tick12, tick3, tick4, tick10, tick11, tick2, tick1, tick14, tick15, tick5, tick8, tick13
+                , tick7, tick6, tick16};
         Ticket[] excpected = mng.orderResult(repository.showThings());
         assertArrayEquals(excpected, actual);
     }
+
     @Order(4)
     @Test
     void matcheArrival() {
         assertTrue(mng.matcheArrival(tick1, "ZIA"));
     }
+
     @Order(5)
     @Test
     void matcheDeparture() {
         assertTrue(mng.matcheDeparture(tick1, "CHI"));
     }
+
 }

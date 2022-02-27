@@ -3,6 +3,8 @@ package ru.netology.manager;
 import ru.netology.domain.Ticket;
 import ru.netology.repository.ProductRepository;
 
+import java.util.Arrays;
+
 public class ProductManager {
     private ProductRepository ticketManager;
 
@@ -45,20 +47,7 @@ public class ProductManager {
 
 
     public Ticket[] orderResult(Ticket[] ticket) {
-        Ticket tempOne;
-        int neatOrder = 1;
-        int length = ticket.length - 1;
-        while (neatOrder != 0) {
-            neatOrder = 0;
-            for (int i = 0; i <= (length - 1); i++) {
-                if (ticket[i].compareTo(ticket[i + 1]) < 0) {
-                    tempOne = ticket[i];
-                    ticket[i] = ticket[i + 1];
-                    ticket[i + 1] = tempOne;
-                    neatOrder++;
-                }
-            }
-        }
+        Arrays.sort(ticket);
         return ticket;
     }
 
