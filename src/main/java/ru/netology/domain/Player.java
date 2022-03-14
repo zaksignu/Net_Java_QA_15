@@ -12,17 +12,16 @@ public class Player implements Comparable<Player>{
         this.strenght = strenght;
     }
 
-
     public int getId() {
         return id;
     }
+
     public String getName() {
         return name;
     }
 
     @Override
     public int compareTo(Player o) {
-        Player play = (Player) o;
         return strenght - o.strenght;
     }
 }

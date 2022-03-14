@@ -1,15 +1,8 @@
 package ru.netology.game;
 
 import ru.netology.domain.Player;
+import ru.netology.exception.NotRegisteredException;
 import ru.netology.repository.GameRepository;
-
-import java.util.ArrayList;
-import java.util.Collection;
-
-
-//public ProductManager(ProductRepository ticketManager) {
-//        this.ticketManager = ticketManager;
-//        }
 
 public class Game {
     private GameRepository playerManager;
@@ -22,39 +15,23 @@ public class Game {
         playerManager.addPlayer(player);
     }
 
-//    public Player[] showAll() {
-//        return playerManager.showPlayers();
-//    }
-
     public int round(String playerName1, String playerName2) {
-        Collection<Player> registredPlayers = playerManager.showPlayers();
-        for (Player player1 : registredPlayers) {
-            if (player1.getName() == playerName1) {
-                for (Player player2 : registredPlayers) {
-                    if (player2.getName() == playerName2) {
-                        if( player1.compareTo(player2) < 0){
-                            return 1;
-                          //  System.out.println(1);
-                        }else {
-                            if( player1.compareTo(player2) > 0){
-                                System.out.println(2);
-                                return 2;
-                            } else {
-                                System.out.println(0);
-                                return 0;
-                            }
+        Player player1 = playerManager.findByName(playerName1);
+        Player player2 = playerManager.findByName(playerName2);
 
-
-                        }
-                    }
-                }
+        if ((player1 != null) && (player2 != null)) {
+            int compare = player1.compareTo(player2);
+            if (compare > 0) {
+                return 1;  //Pl1 > Pl2
+            } else if (compare < 0) {
+                return 2; //Pl2 > Pl1
+            } else {
+                return 0; //Pl1 = Pl2
             }
+        } else {
+            throw new NotRegisteredException("Where is registred player/s?");
         }
-
     }
-
-
-
 
 }
 

@@ -12,15 +12,21 @@ public class GameRepository {
         playersList.add(name);
     }
 
-    public Collection<Player> showPlayers() {
-   //     return playersList.toArray(new Player[0]);
-        return playersList;
-        //
+    public Player[] showPlayers() {
+        return playersList.toArray(new Player[0]);
+    }
 
+    public Player findByName(String Name) {
+        for (Player player : playersList) {
+            if (player.getName() == Name) {
+                return player;
+            }
+        }
+        return null;
     }
 
     public void removePlayer(int id) {
-        playersList.removeIf(el->el.getId() == id);
+        playersList.removeIf(el -> el.getId() == id);
     }
 
 }
