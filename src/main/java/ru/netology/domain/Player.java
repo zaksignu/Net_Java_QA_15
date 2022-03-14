@@ -1,6 +1,6 @@
 package ru.netology.domain;
 
-public class Player implements Comparable<Player>{
+public class Player implements Comparable<Player> {
 
     private int id;
     private String name;
