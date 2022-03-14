@@ -46,7 +46,6 @@ class GameTest {
         int actual = mng.round("First", "Third");
         int expected = 0;
         assertEquals(expected, actual);
-
     }
 
     @Test
